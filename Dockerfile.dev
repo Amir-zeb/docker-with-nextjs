@@ -1,0 +1,17 @@
+FROM node:25-slim AS base
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "npm","run","dev" ]
+
+
+# cmd for image > docker build -t docker-nextjs .
+# cmd for container > docker run -it -v .:/app -p 3000:3000 docker-nextjs
