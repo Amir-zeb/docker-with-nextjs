@@ -4,8 +4,22 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     container_name: docker-with-nextjs-prod
-    ports:
-      - "8080:3000"
+    # when not using ngnix
+    # ports:
+    #   - "8080:3000"
+    expose:
+      - "3000"
     env_file:
       - .env.production
     restart: always
+
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
