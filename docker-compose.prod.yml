@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
-    container_name: docker-with-nextjs-prod
+    # container_name: docker-with-nextjs-prod
     # when not using ngnix
     # ports:
     #   - "8080:3000"
