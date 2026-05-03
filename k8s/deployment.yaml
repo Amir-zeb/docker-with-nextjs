@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nextjs-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: nextjs
@@ -15,7 +15,7 @@ spec:
       containers:
         - name: nextjs
           image: docker-with-nextjs-app
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           resources:
